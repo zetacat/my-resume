@@ -1,0 +1,63 @@
+name: Build all LaTeX resumes and commit PDFs
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "**/*.tex"
+      - .github/workflows/build.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write   # needed to push commits back
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Discover .tex files
+        id: discover
+        shell: bash
+        run: |
+          mapfile -t TEXFILES < <(git ls-files '*.tex' | sed 's#^./##' | sort)
+          printf '%s\n' "${TEXFILES[@]}"
+          {
+            echo "root_file<<EOF"
+            printf '%s\n' "${TEXFILES[@]}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Compile PDFs
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: ${{ steps.discover.outputs.root_file }}
+          args: -pdf -file-line-error -interaction=nonstopmode -halt-on-error
+          extra_system_packages: fontconfig
+
+      # PDFs are created alongside their .tex (e.g., swe/resume_swe.pdf).
+      # Commit only if there are changes.
+      - name: Commit PDFs back to repo
+        if: ${{ !cancelled() }}
+        shell: bash
+        run: |
+          # Stage only PDFs so we don't accidentally commit other files
+          git add -A '*.pdf' || true
+
+          # If no staged changes, exit
+          if git diff --cached --quiet; then
+            echo "No PDF changes to commit."
+            exit 0
+          fi
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Use a commit message that won't retrigger this workflow:
+          # our trigger only watches *.tex and this workflow file.
+          git commit -m "chore(pdf): update compiled resumes"
+          git push

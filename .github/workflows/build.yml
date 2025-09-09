@@ -36,6 +36,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: ${{ steps.discover.outputs.root_file }}
+          work_in_root_file_dir: true
           args: -pdf -file-line-error -interaction=nonstopmode -halt-on-error
           extra_system_packages: fontconfig
 

@@ -2,7 +2,7 @@ name: Build all LaTeX resumes and commit PDFs
 
 on:
   push:
-    branches: [ main ]
+    branches-ignore: []
     paths:
       - "**/*.tex"
       - .github/workflows/build.yml

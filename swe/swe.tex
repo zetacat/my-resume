@@ -164,12 +164,11 @@ builders/readers}
 \resumeItem{Optimize import time by
   \textbf{~66\%} by restored lazy imports; vectorized geometry
 operations for \textbf{~250$\times$} faster large Pandas DataFrame handling}
-% \resumeItem{Identified critical logic errors and duplicated,
-%   inconsistent geometry-conversion paths; refactored and unified
-%   implementations to ensure reliable conversions between different
-% geometry formats}
+\resumeItem{Refactored and unified
+  implementations to ensure reliable conversions between different
+geometry formats}
 \resumeItem{\textbf{\underline{Relevant Skills}}: Python, Rust, PyO3,
-Python profiling and visualization, Git}
+Python profiling and visualization, Pandas, NumPy, Design Patterns, OOP}
 \resumeItemListEnd
 
 % \resumeSubheading
@@ -195,7 +194,7 @@ Python profiling and visualization, Git}
 
 \resumeSubheading
 {Quantrend Technology}{Taipei, Taiwan}
-{Machine Learning Engineer (High Frequency Trading Team)}{Jun 2021 -- Aug 2023}
+{Machine Learning Engineer (High Frequency Trading)}{Jun 2021 -- Aug 2023}
 % Solving financial stochastic problem with machine learning and
 % other statistical tools
 \resumeItemListStart
@@ -227,38 +226,38 @@ Learning metrics}
 % system by detecting newly emerged signboards using Metric
 % Learning techniques
 \resumeItemListStart
-\resumeItem{Collaborated with senior engineers to enhance their
-  computer vision-based mapping system by detecting newly emerged
-signboards using Metric Learning techniques}
+\resumeItem{Enhanced the accuracy of the computer vision-based mapping system by
+detecting and aligning new signboards using Metric Learning techniques}
+\resumeItem{Designed data augmentation mechanism to synthesize
+signboard images, improving model generalization}
 \resumeItem{Surveyed and experimented with Metric Learning techniques
 (Siamese, Triplet) for fine-tuning purposes}
-\resumeItem{Designed a data augmentation mechanism to synthesize new
-signboards data and improve model scores}
 \resumeItem{\textbf{\underline{Relevant Skills}}:
   Python, PyTorch, Machine Learning, Contrastive Learning, Object Detection
 }
 \resumeItemListEnd
 
-% \resumeSubheading
-% {CancerFree Biotech}{Taipei, Taiwan}
-% {Intern}{Jul 2020 -- Aug 2020}
-% % Constructed a stained cell image recognition pipeline
-% \resumeItemListStart
-% \resumeItem{Constructed a stained cell image recognition pipeline}
-% \resumeItem{Developed a stained cell counting program using
-% thresholding techniques to replace existing paid software}
-% \resumeItem{Designed a report generation pipeline with Python
-% adhering to the open-closed principle}
-% \resumeItem{\textbf{\underline{Relevant Skills}}:
-%   Python, NumPy, Computer Vision, Thresholding
-% }
-% \resumeItemListEnd
+\resumeSubheading
+{CancerFree Biotech}{Taipei, Taiwan}
+{Intern}{Jul 2020 -- Aug 2020}
+% Constructed a stained cell image recognition pipeline
+\resumeItemListStart
+\resumeItem{Eliminated manual processing of 100+ images/week by
+  constructing automated cell counting Python pipeline, replacing
+commercial software with customizable solution}
+\resumeItem{Reduced report creation time from 2 hours to 1 minute per
+  batch by designing automated generation pipeline integrating cell
+counting results}
+\resumeItem{\textbf{\underline{Relevant Skills}}:
+  Python, NumPy, Computer Vision, Thresholding
+}
+\resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------
-\section{Projects}
-\resumeSubHeadingListStart
+% \section{Projects}
+% \resumeSubHeadingListStart
 % \resumeProjectHeading
 % {\href{https://github.com/Zetacat/MEowTRO}{\underline{\textbf{MEowTRO}}} $|$
 %   \emph{
@@ -267,31 +266,32 @@ signboards data and improve model scores}
 % % MEowTRO - Subway System Simulation Game
 % \resumeItemListStart
 % \resumeItem{Designed and developed a Subway System Simulation Game,
-% leveraging the Open-Closed Principle for modular and extensible design}
+% following the Open-Closed Principle for modular and extensible design}
 % \resumeItem{Led the design and development of the subway system,
-%   including station management, railway construction, and the shortest
-% path algorithm (Dijkstra's algorithm)}
+%   including station management, railway construction, and efficient shortest
+% path finding}
 % \resumeItem{Utilized class diagrams for collaboration and practiced
 % design patterns to ensure scalability and maintainability}
 % \resumeItemListEnd
 
-\resumeProjectHeading
-{\textbf{Final Project: Convolution Kernel Optimizations} $|$
-  \emph{
-    CUDA, C++, Parallel Programming
-}}{Fall 2024, UIUC}
-\resumeItemListStart
-\resumeItem{Fused im2col + GEMM + permutation into a single CUDA
-  kernel to cut global-memory traffic and launch overhead while
-preserving accuracy for any batch size.}
-\resumeItem{Leveraged Tensor Cores (WMMA) with shared-memory tiling,
-  register blocking, \_\_restrict\_\_, and manual loop-unrolling; handled
-edge tiles and mixed layouts.}
-\resumeItem{Profiled with Nsight Systems/Compute to drive changes in
-  occupancy, memory coalescing, L2 reuse, and shared-memory
-bank-conflict avoidance.}
-\resumeItemListEnd
-\resumeSubHeadingListEnd
+% \resumeProjectHeading
+% {\textbf{Final Project: Convolution Kernel Optimizations} $|$
+%   \emph{
+%     CUDA, C++, Parallel Programming
+% }}{Fall 2024, UIUC}
+% \resumeItemListStart
+% \resumeItem{Fused im2col + GEMM + permutation into a single CUDA
+%   kernel to cut global-memory traffic and launch overhead while
+% preserving accuracy for any batch size.}
+% \resumeItem{Leveraged Tensor Cores (WMMA) with shared-memory tiling,
+%   register blocking, \_\_restrict\_\_, and manual loop-unrolling; handled
+% edge tiles and mixed layouts.}
+% \resumeItem{Profiled with Nsight Systems/Compute to drive changes in
+%   occupancy, memory coalescing, L2 reuse, and shared-memory
+% bank-conflict avoidance.}
+% \resumeItemListEnd
+
+% \resumeSubHeadingListEnd
 
 %
 %-----------SKILLS-----------
@@ -301,7 +301,8 @@ bank-conflict avoidance.}
     \item{
         \textbf{Languages}{: C/C++, CUDA(C++), Python, Java, Rust,
         HTML/CSS, JS, php, SQL} \\
-        \textbf{Software Design}{: Object-Oriented Programming (OOP),
+        \textbf{Software Design}{: Algorithms, Data Structures,
+          Object-Oriented Programming (OOP),
         Design Pattern, Open-Closed Principle, Git, Docker} \\
         \textbf{Security}{: Reverse Engineering in Windows and Linux,
         overflow, stack pivoting, GOT hijack, ROP chain, use-after-free} \\
